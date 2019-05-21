@@ -21,13 +21,24 @@
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item">
                     <%= link_to new_place_path, class: 'nav-link' do %>
-                    <span class="fa fa-plus-circle"</span>
-                        New Place
+                    <span class="fa fa-plus-square"></span>
+                    New Place
                     <% end %>
                 </li>
             </ul>
         </div>
     </nav>
+    <% if notice.present? %>
+    <p class="alert alert-info">
+        <%= notice %>
+    </p>
+    <% end %>
+    <% if alert.present? %>
+    <p class="alert alert-danger">
+        <%= alert %>
+    </p>
+    <% end %>
+    
     <%= yield %>
 </body>
 
