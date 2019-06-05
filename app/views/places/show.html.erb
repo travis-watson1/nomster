@@ -1,4 +1,6 @@
-<div class="booyah-box col-10 offset-1">
+<div class="container booyah-box col-10 offset-1">
+    <div class="row">
+        <div class="col-sm">
     <h1>
         <%= @place.name %>
     </h1>
@@ -8,6 +10,8 @@
     <p>
         <%= @place.description %>
     </p>
+    </div>
+    <div class="col-sm">
     <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
         function initMap() {
@@ -29,6 +33,14 @@
     </script>
     <div id="map"></div>
     <% end %>
+</div>
+<div class="col-sm">
+<% @place.photos.each do |photo| %>
+        <%= image_tag photo.picture.url, width: '50%' %></b> <br>-
+        <%= photo.caption %>
+</div>
+<% end %>
+</div>
     <br>
     <div class="float-right">
         <% if current_user && current_user == @place.user %>
@@ -119,12 +131,5 @@
 
 <div class="row">
 <% @place.photos.each do |photo| %>
-<div class="col-12 col-sm-6 offset-1">
-    <blockquote>
-        <b>
-        <%= image_tag photo.picture.url %></b> -
-        <%= photo.caption %>
-    </blockquote>
-</div>
 <% end %>
 </div>
