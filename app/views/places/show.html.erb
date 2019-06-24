@@ -50,11 +50,12 @@
             <!-- Adding new carousel -->
             <br>
             <br>
+                <% if @photo.picture? %>
             <div id="myCarousel" class="carousel slide custom-carousel" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <% @place.photos.each_with_index do |photo, n| %>
-                    <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+                        <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
                     <% end %>
                 </ol>
                 <!-- Wrapper for slides -->
@@ -72,6 +73,7 @@
                     </div>
                     <% end %>
                 </div>
+                <% end %>
                 <!-- Left and right controls -->
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
