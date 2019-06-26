@@ -171,9 +171,13 @@
 <br>
 <br>
 <br>
-<% if @photo.picture? %>
+
+<!--
+<% if @place.photos.present? %>
     <% @place.photos.each do |photo| %>
         <%= image_tag photo.picture.url %></b> <br>-
         <%= photo.caption %>
     <% end %>
 <% end %>
+
+<-->
